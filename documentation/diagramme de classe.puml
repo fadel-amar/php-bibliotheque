@@ -1,4 +1,6 @@
 @startuml
+'https://plantuml.com/class-diagram
+'skinparam classAttributeIconSize 0
 
 Abstract Class Media {
 #dureeEmprunt : entier
@@ -35,12 +37,21 @@ Class Adherant {
 - prenom : chaine
 - email : chaine
 - dateAdhesion : dateTime
++ GenererNumero()
+~ RenouvlerAdhesion()
+~ FindInformations()
+~ AdhesionValable()
+
 }
 
 Class Emprunt {
 - dateEmprunt :dateTime
 - dateretourEstime : dateTime
 - dateretourEffectif: dateTime
+~ InformationsEmprunt
+~ EmpruntEnCours()
+~ EmpruntAlerte()
+~ DureeAutoriseEmprunt()
 }
 
 

@@ -21,16 +21,20 @@ class Adherant
         } else {
             $this->dateAdhesion = \DateTime::createFromFormat('d/m/Y',$dateAdhesion);
         }
-
     }
-
-
 
     public function genererNumero() : string
     {
         $chiffreAleatoire = rand(0,999999);
         return "AD-{$chiffreAleatoire}";
     }
+
+    public function RenouvlerAdhesion (): void {
+        $this->dateAdhesion = $this->dateAdhesion->add(\DateInterval::createFromDateString("+1 Y"));
+    }
+
+
+
 
     /**
      * @return string
