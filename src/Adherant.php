@@ -5,36 +5,57 @@ namespace App;
 class Adherant
 {
     private string $numeroAdherant;
-    private string  $prenom;
-    private string  $nom;
-    private string  $email;
-    private \DateTime  $dateAdhesion;
+    private string $prenom;
+    private string $nom;
+    private string $email;
+    private \DateTime $dateAdhesion;
 
 
-    public function __construct(string $prenom,string $nom, string $email, ?string $dateAdhesion = null) {
+    public function __construct(string $prenom, string $nom, string $email, ?string $dateAdhesion = null)
+    {
         $this->numeroAdherant = $this->genererNumero();
         $this->prenom = $prenom;
         $this->nom = $nom;
         $this->email = $email;
-        if($dateAdhesion == null) {
+        if ($dateAdhesion == null) {
             $this->dateAdhesion = new \DateTime();
         } else {
-            $this->dateAdhesion = \DateTime::createFromFormat('d/m/Y',$dateAdhesion);
+            $this->dateAdhesion = \DateTime::createFromFormat('d/m/Y', $dateAdhesion);
         }
     }
 
-    public function genererNumero() : string
+    public function genererNumero(): string
     {
-        $chiffreAleatoire = rand(0,999999);
+        $chiffreAleatoire = rand(0, 999999);
         return "AD-{$chiffreAleatoire}";
     }
 
-    public function RenouvlerAdhesion (): void {
-        $this->dateAdhesion = $this->dateAdhesion->add(\DateInterval::createFromDateString("+1 Y"));
+    public function RenouvelerAdhesion(): void
+    {
+        $this->dateAdhesion = $this->dateAdhesion->add(new \DateInterval('P1Y'));
     }
 
+    public function FindInformations(): array
+    {
+        return [
+            'numeroAdherant' => $this->numeroAdherant,
+            'prenom' => $this->prenom,
+            'nom' => $this->nom,
+            'email' => $this->email,
+            'dateAdhesion' => $this->dateAdhesion->format('d/m/Y'),
+        ];
+    }
 
+    public function AdhesionValable () : bool {
+        $dateActuelle = new \DateTime();
+        $difference = $this->dateAdhesion->diff($dateActuelle);
+        if($difference->days < 365) {
+            return true;
+        } else {
+            return false;
+        }
 
+    }
 
     /**
      * @return string
@@ -47,7 +68,8 @@ class Adherant
     /**
      * @return string
      */
-    public function getPrenom(): string
+    public
+    function getPrenom(): string
     {
         return $this->prenom;
     }
@@ -55,7 +77,8 @@ class Adherant
     /**
      * @return string
      */
-    public function getNom(): string
+    public
+    function getNom(): string
     {
         return $this->nom;
     }
@@ -63,7 +86,8 @@ class Adherant
     /**
      * @return string
      */
-    public function getEmail(): string
+    public
+    function getEmail(): string
     {
         return $this->email;
     }
@@ -71,7 +95,8 @@ class Adherant
     /**
      * @return string
      */
-    public function getDateAdhesion(): string
+    public
+    function getDateAdhesion(): string
     {
         return $this->dateAdhesion->format('d/m/Y');
     }
