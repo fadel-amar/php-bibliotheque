@@ -1,0 +1,59 @@
+@startuml
+
+Abstract Class Media {
+#dureeEmprunt : entier
+#titre : chaine
+}
+
+
+Class Livre {
+- isbn : chaine
+- auteur : chaine
+- nbPages : entier
+}
+
+
+Class BluRay {
+- realisateur  : chaine
+- duree : int
+- anneeSortie : dateTime
+}
+
+
+Class Magazine {
+- Numero : entier
+- datePublication : dateTime
+}
+
+
+
+
+
+Class Adherant {
+- NoAdherant : chaine
+- nom  : chaine
+- prenom : chaine
+- email : chaine
+- dateAdhesion : dateTime
+}
+
+Class Emprunt {
+- dateEmprunt :dateTime
+- dateretourEstime : dateTime
+- dateretourEffectif: dateTime
+}
+
+
+
+
+
+
+Livre --|> Media
+BluRay --|> Media
+Magazine --|> Media
+Adherant "1..*" <--> "1..1" Emprunt : associé >
+Media "0..*" <-- "1..1" Emprunt : concerne >
+@enduml
+
+
+
