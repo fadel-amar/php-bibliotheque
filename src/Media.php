@@ -6,9 +6,8 @@ abstract class Media
     protected int $dureeEmprunt;
     protected string $titre;
 
-    public function __construct(int $dureeEmprunt, string $titre)
+    public function __construct(string $titre)
     {
-        $this->dureeEmprunt = $dureeEmprunt;
         $this->titre = $titre;
     }
 

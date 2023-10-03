@@ -47,8 +47,8 @@ Class Adherant {
 Class Emprunt {
 - dateEmprunt :dateTime
 - dateretourEstime : dateTime
-- dateretourEffectif: dateTime
-~ InformationsEmprunt
+- dateretour: dateTime
+~ InformationsEmprunt()
 ~ EmpruntEnCours()
 ~ EmpruntAlerte()
 ~ DureeAutoriseEmprunt()

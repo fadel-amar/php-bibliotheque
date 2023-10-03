@@ -1,4 +1,4 @@
-<?php /** @noinspection PhpLanguageLevelInspection */
+<?php
 
 namespace App;
 
@@ -98,7 +98,7 @@ class Adherant
     public
     function getDateAdhesion(): string
     {
-        return $this->dateAdhesion->format('d/m/Y');
+        return $this->dateAdhesion->format('Y');
     }
 
 

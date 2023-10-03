@@ -6,17 +6,18 @@ class BluRay extends Media {
 
     private string $realisateur;
     private int  $duree;
-    private \DateTime $anneeSortie;
+    private int $anneeSortie;
 
 
 
-    public function __construct(int $dureeEmprunt, string $titre, $realisateur, $anneeSortie, $duree )
+    public function __construct(string $titre, $realisateur,  $anneeSortie, $duree )
     {
-        parent::__construct($dureeEmprunt, $titre);
+        parent::__construct( $titre);
         $this->dureeEmprunt = 15;
         $this->realisateur = $realisateur;
         $this->duree = $duree;
         $this->anneeSortie = $anneeSortie;
+        ;
     }
 
 
@@ -30,5 +31,31 @@ class BluRay extends Media {
             'duree Emprunt' => $this->dureeEmprunt.' jours',
         ];
     }
+
+    /**
+     * @return string
+     */
+    public function getRealisateur(): string
+    {
+        return $this->realisateur;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDuree(): int
+    {
+        return $this->duree;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getAnneeSortie(): string
+    {
+        return $this->anneeSortie;
+    }
+
+
 
 }

@@ -7,9 +7,9 @@ class Livre extends Media {
     private string $auteur;
     private int $nbPages;
 
-    public function __construct($isbn, $auteur, $titre, $nbPages,$dureeEmprunt) {
+    public function __construct($isbn, $auteur, $titre, $nbPages) {
         $this->dureeEmprunt =21;
-        parent::__construct($titre, $dureeEmprunt);
+        parent::__construct($titre);
         $this->isbn = $isbn;
         $this->auteur = $auteur;
         $this->nbPages = $nbPages;
