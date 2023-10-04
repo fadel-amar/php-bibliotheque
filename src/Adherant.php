@@ -98,7 +98,7 @@ class Adherant
     public
     function getDateAdhesion(): string
     {
-        return $this->dateAdhesion->format('Y');
+        return $this->dateAdhesion->format('d/m/Y');
     }
 
 
